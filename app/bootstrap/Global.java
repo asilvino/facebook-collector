@@ -65,11 +65,13 @@ public class Global extends GlobalSettings {
 
     private void createIndexForPost() {
         try {
-            DS.mop.createCollection("post");
-            DBObject textIndex = new BasicDBObject("message", "text");
-            textIndex.put("link","text");
-            textIndex.put("name","text");
-            DS.mop.getCollection("post").createIndex(textIndex);
+            if(!DS.mop.collectionExists("post")){
+                DS.mop.createCollection("post");
+                DBObject textIndex = new BasicDBObject("message", "text");
+                textIndex.put("link","text");
+                textIndex.put("name","text");
+                DS.mop.getCollection("post").createIndex(textIndex);
+            }
         }catch (Exception e){
             Logger.debug("error on index post"+e.getMessage());
         }

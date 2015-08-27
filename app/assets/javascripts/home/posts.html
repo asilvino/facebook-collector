@@ -1,0 +1,248 @@
+    <script src="/assets/dist/js/app.js" type="text/javascript"></script>
+    <!-- bootstrap time picker -->
+    <link href="/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet"/>
+    <!-- daterange picker -->
+    <link href="/assets/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/chosen/chosen.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/lib/angular-block-ui/dist/angular-block-ui.min.css" rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- DATA TABLES -->
+    <link href="/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+      <header class="main-header">
+       <script type="text/javascript">
+          $(function () {
+            $('#daterange').daterangepicker({format: 'DD/MM/YYYY'});
+          });
+       </script>
+
+        <!-- Logo -->
+        <a href="../../index2.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>A</b>LT</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Admin</b>LTE</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-right">
+                      <a href="" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              <li>
+                <a href="" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <!-- <div class="user-panel">
+            <div class="pull-left image">
+              <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
+
+              <a href=""><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div> -->
+          <!-- search form -->
+         <!--  <form action="" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search..."/>
+              <span class="input-group-btn">
+                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form> -->
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">Navegação Principal</li>
+            <li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Menu</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="/#/"><i class="fa fa-circle-o"></i> Users</a></li>
+                <li><a href="/#/posts"><i class="fa fa-circle-o"></i> POSTS</a></li>
+              </ul>
+            </li>
+            <li>
+
+            </li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Tabela de POSTS
+            <small>POSTS do facebook</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="">Tables</a></li>
+            <li class="active">Simple</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-primary">
+                <div class="form-group">
+                  <div class="box-body">
+                    <label>
+                        Facebook Pages: <br/>
+                        <select chosen data-placeholder="Choose a Page"
+                         no-results-text="'Could not find any page :('"
+                         style="width:350px;" class="chosen-select" ng-model="query.pages" ng-change="selectPages(query.pages)" ng-options="page.title for page in pages">
+                        </select>
+                    </label>
+                    <div class="form-group">
+                      <label>Alcance da data:</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input ng-model="query.date" ng-change="selectDate(query.date)" type="text" class="form-control pull-right" id="daterange"/>
+                      </div><!-- /.input group -->
+                    </div><!-- /.form group -->
+                    <div class="form-group">
+                        <label>Filtrar por palavra chave dos posts:</label>
+                        <div class="input-group">
+                          <div class="input-group margin">
+                            <input ng-model="query.keyword" type="text" class="form-control">
+                            <span class="input-group-btn">
+                              <button class="btn btn-info btn-flat" ng-click="addkeyword(query.keyword)" type="button">Go!</button>
+                            </span>
+                          </div>
+                        </div>
+                    </div><!-- /.form group -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.content-wrapper -->
+        </section><!-- /.content -->
+        <section class="content" ng-init="updateTable()">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">POSTS <span ng-bind="total"></span></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>message</th>
+                        <th><a style="cursor:pointer" ng-href="" ng-model="query.order"  ng-click="selectOrder('likesCount')">Número de likes <label ng-bind="query.order==='likesCount'?direction[query.direction]:direction.none"></label>  </a></th>
+                        <th><a style="cursor:pointer" ng-href="" ng-model="query.order"  ng-click="selectOrder('commentsCount')">Número de Comments  <label ng-bind="query.order==='commentsCount'?direction[query.direction]:direction.none"></label></a></th>
+                        <th>Created Date</th>
+                        <th>Page</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="post in posts">
+                          <td > 
+                            <a ng-href="http://facebook.com/{{post.objectId||post._id}}" target="_blank">{{post.objectId||post._id}}</a>
+                          </td>
+                          <td ng-bind="post.message">
+                          </td>
+                          <td ng-bind="post.extraData.likesCount"></td>
+                          <td ng-bind="post.extraData.commentsCount"></td>
+                          <td ng-bind="post.createdTime| date:'dd/MM/yyyy HH:mm:ss Z'"></td>
+                          <td ng-bind="post.from.name"></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>id</th>
+                        <th>message</th>
+                        <th>Número de likes</th>
+                        <th>Número de Comments</th>
+                        <th>Created Date</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrando <span ng-bind="de"></span> até <span ng-bind="ate"></span> de <span ng-bind="total"></span> posts</div>
+                    </div>
+                    <div class="col-sm-7">
+                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">  <ul class="pagination">
+                          <li class="paginate_button previous " ng-class="{'disabled':query.page===1}"  >
+                          <a ng-href="" aria-controls="example2" ng-click="changePage(1)" >Primeira Página</a>
+                          </li>
+                          <li class="paginate_button previous " ng-class="{'disabled':query.page===1}" id="example2_previous">
+                          <a ng-href="" aria-controls="example2" ng-click="query.page!==1&&changePage((1*query.page)-1)" >Anterior</a>
+                          </li>
+                          <li class="paginate_button" ng-class="{'active':query.page===page}" ng-repeat="page in pagesAvailables">
+                            <a ng-href="" aria-controls="example2" ng-model="query.page" ng-click="changePage(page)" ng-bind="page"></a>
+                          </li>
+                          <li class="paginate_button next" ng-class="{'disabled':query.page===totalPages}" id="example2_next">
+                          <a ng-href="" aria-controls="example2"  ng-click="query.page!==totalPages&&changePage((1*query.page)+1)">Próximo</a>
+                          </li>
+                          <li class="paginate_button next " ng-class="{'disabled':query.page===totalPages}" >
+                          <a ng-href="" aria-controls="example2" ng-click="changePage(totalPages)" >Ultima Página</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+      </footer>

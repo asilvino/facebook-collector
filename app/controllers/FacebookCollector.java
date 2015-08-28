@@ -121,6 +121,7 @@ public class FacebookCollector {
                 }catch (Exception e){
                     Logger.debug("error on get more  posts: "+e.getMessage() );
                 }
+                Logger.debug("update:"+page.getTitle()+"  " );
             }while(posts.getNextPage()!=null);
             Logger.debug("Finished page:"+page.getId());
 

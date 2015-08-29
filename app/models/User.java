@@ -90,8 +90,7 @@ public class User {
         comment.likeCount = commentFacebook.getLikeCount()!=null?commentFacebook.getLikeCount().intValue():0;
         comment.attachment = commentFacebook.getAttachment();
         comment.postId = post.getId();
-        comment.createdDate = post.getCreatedTime();
-        comment.updatedDate = post.getUpdatedTime();
+        comment.createdDate = commentFacebook.getCreatedTime();
         comment.pageId = pageId;
         this.comments.add(comment);
     }

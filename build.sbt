@@ -24,7 +24,8 @@ libraryDependencies ++= Seq(
   "org.webjars" % "angularjs" % "1.4.3" exclude("org.webjars", "jquery"),
   "org.webjars.bower" % "angular-resource" % "1.4.3",
   "org.webjars" % "angular-chosen" % "1.0.6",
-  "org.webjars.bower" % "angular-block-ui" % "0.2.0"
+  "org.webjars.bower" % "angular-block-ui" % "0.2.0",
+  "com.sachinhandiekar" % "jInstagram" % "1.1.3"
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the

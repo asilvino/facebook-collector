@@ -34,10 +34,10 @@ import service.MongoService;
 public class FacebookCollector {
 
     public enum FacebookPages {
+        chicorei("162726143745402"),
         king55style("177679275612961"),
         mestredalma("160540370633021"),
         camiseteria("7018060973"),
-        chicorei("162726143745402"),
         kanuibr("197061883680740");
 
         public String id;

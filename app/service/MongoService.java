@@ -76,6 +76,7 @@ public class MongoService {
         }
         return true;
     }
+
     public static boolean save(Post post){
         try{
             DS.mop.save(post);
@@ -85,6 +86,7 @@ public class MongoService {
         }
         return true;
     }
+    
     public static boolean save(User user){
         try{
             DS.mop.save(user);

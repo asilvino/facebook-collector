@@ -53,7 +53,7 @@ public class MongoService {
                 if(userFromDb!=null){
                     userFromDb.getComments().addAll(user.getComments());
                     userFromDb.getLikes().addAll(user.getLikes());
-
+                    userFromDb.getPages().addAll(user.getPages());
                     DS.mop.save(userFromDb);
                 }else{
 
